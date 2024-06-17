@@ -6,6 +6,7 @@
 #5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
 
+library(dplyr)
 ##### 1* MErging the training and the test data-sets to create one data-set.
 #1.1. loading Train data-set:
 train_x_df <- read.table('UCI HAR Dataset\\train\\X_train.txt', sep = "")
@@ -94,3 +95,6 @@ dim(melt_dfz)
 # Dcast data with mean-function:
 tidy_data <- dcast(melt_dfz, activityID + subjectID ~ variable, mean)
 tidy_data[,1:3] # <----Tidy data set
+
+# SUBMITTING
+write.table(x = tidy_data, row.name=FALSE,  file = "tidy_data_set.txt")
