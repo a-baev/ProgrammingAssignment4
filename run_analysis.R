@@ -93,4 +93,4 @@ melt_dfz <- melt(data = dfz, id = c('subjectID', 'activityID'))
 dim(melt_dfz)
 # Dcast data with mean-function:
 tidy_data <- dcast(melt_dfz, activityID + subjectID ~ variable, mean)
-tidy_data[,1:3]
+tidy_data[,1:3] # <----Tidy data set
